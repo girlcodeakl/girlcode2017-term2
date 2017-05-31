@@ -1,0 +1,20 @@
+{
+  "name": "girlcodeproject",
+  "version": "0.0.0",
+  "description": "a simple web app",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/girlcodeakl/template.git"
+  },
+  "author": "Girl Code",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/girlcodeakl/template/issues"
+  },
+  "homepage": "https://github.com/girlcodeakl/template",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3"
+  }
+}
