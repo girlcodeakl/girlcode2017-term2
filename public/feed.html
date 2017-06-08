@@ -26,6 +26,8 @@ var displayMessage = function(post) {
   $(".message-list").append(postElement);
   var imageElement = $('<img src='+post.image+'>');
 postElement.append(imageElement);
+var timeElement = $('<div class="time">' + post.time + '</div>' );
+postElement.append(timeElement);
 }
 
 
