@@ -26,6 +26,7 @@ var saveNewPost = function (request, response) {
   var post = {};
   post.message = request.body.message;
   post.image = request.body.image;
+  post.time= new Date();
   post.author = request.body.author;
   console.log(request.body.author);
   posts.push(post);

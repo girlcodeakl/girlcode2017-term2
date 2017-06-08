@@ -4,6 +4,7 @@
   <head>
     <meta charset='utf-8'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
     <title>Message Feed</title>
     <link rel="stylesheet" href="style.css">
   </head>
@@ -28,6 +29,11 @@ var displayMessage = function(post) {
   var authorElement = $('<div class="author">' + "Written by: " + post.author + '</div>');
 postElement.append(authorElement);
 postElement.append(imageElement);
+var timeElement = $('<div class="time">' + $.format.prettyDate(post.time) + '</div>' );
+postElement.append(timeElement);
+if (post.time === undefined) {
+   post.time = new Date("2016-01-01");
+}
 }
 
 
