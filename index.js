@@ -26,6 +26,8 @@ var saveNewPost = function (request, response) {
   var post = {};
   post.message = request.body.message;
   post.image = request.body.image;
+  post.author = request.body.author;
+  console.log(request.body.author);
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
 }
