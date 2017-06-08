@@ -9,15 +9,26 @@ crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
   </head>
   <body>
+<<<<<<< HEAD
+<div class="nav-bar">
+      <ul>
+  <li><a href="http://localhost:3000/">Home</a></li>
+  <li><a href="http://localhost:3000/feed.html">Check the feed</a></li>
+  <li><a href="http://localhost:3000/post.html">Add a message</a></li>
+</ul>
+    </div>
+
       <div class="note"></div>
       <form method="post" action="/posts">
           <input type="text" name="message" class="messageInput"value="message goes here">
+          <input type="text" name="image" class="imageInput" value="Enter image url here">
           <button class= "postButton"> Post It!</button>
       </form>
       <script >
       var myCoolFunction = function (e) {
       var data = {};
       data.message = $(".messageInput").val();
+      data.image = $(".imageInput").val();
 $.post( "/posts" , data );
     e.preventDefault();
 $(".note").text("Thanks! Your message was saved!");
@@ -26,4 +37,5 @@ $(".postButton").on("click", myCoolFunction);
 
       </script >
   </body>
+
 </html>
