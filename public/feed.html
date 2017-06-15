@@ -17,6 +17,7 @@
     </ul>
         </div>
     <h1 class="title">Message Feed</h1>
+    <input type="text" name="filter" class="filterInput" placeholder="Search">
     <div class="message-list">
     </div>
     <script>
@@ -33,6 +34,9 @@ var timeElement = $('<div class="time">' + $.format.prettyDate(post.time) + '</d
 postElement.append(timeElement);
 if (post.time === undefined) {
    post.time = new Date("2016-01-01");
+   var filterFunction = function () {
+     data.filter = $(".filterInput").val();
+   }
 }
 }
 
