@@ -29,12 +29,20 @@ var saveNewPost = function (request, response) {
   post.image = request.body.image;
   post.time= new Date();
   post.author = request.body.author;
+  post.id = Math.round(Math.random() * 10000);
   console.log(request.body.author);
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
   var dbPosts = database.collection('posts');
 dbPosts.insert(post);
 }
+app.get('/post', function (req, res) {
+   var searchId = req.query.id;
+   console.log("Searching for post " + searchId);
+   var post = posts.find(x => x.id == searchId);
+      res.send(post);
+});
+
 app.post('/posts', saveNewPost);
 var mongodb = require('mongodb');
 var uri = 'mongodb://girlcode:hats123@ds019893.mlab.com:19893/girlcode2017-term2';

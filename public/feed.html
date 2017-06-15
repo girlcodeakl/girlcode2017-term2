@@ -32,9 +32,8 @@
     postElement.append(imageElement);
     var timeElement = $('<div class="time">' + $.format.prettyDate(post.time) + '</div>' );
     postElement.append(timeElement);
-    if (post.time === undefined) {
-      post.time = new Date("2016-01-01");
-    }
+    var postId= $('<div class="postId">'+ post.id +'</div>');
+    postElement.append(postId);
   }
 
   var filterFunction = function () {
@@ -47,7 +46,6 @@
       }
     });
   }
-
 
   var createFeed = function(data) {
     data.forEach(displayMessage);

@@ -18,6 +18,9 @@ h1 {
   border: 2px solid #FFB03B;
   border-radius: 5px;
 }
+.postId {
+    display: none;
+}
 ul {
     list-style-type: none;
     margin: 0;
