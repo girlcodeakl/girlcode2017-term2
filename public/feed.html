@@ -34,19 +34,18 @@
     postElement.append(timeElement);
     if (post.time === undefined) {
       post.time = new Date("2016-01-01");
-      var filterFunction = function () {
-        searchText = $(".filterInput").val();
-        $(".message-list").children().each(function(number, element) {
-        if (element.innerHTML.toLowerCase().indexOf(searchText.toLowerCase()) != -1) {
-          ("yes"); $(postNode).removeClass("hidden");
-        } else {
-          ("no");  $(postNode).addClass("hidden");
-        }
-        $(".filter").on("keyup", filterFunction);
-});
-
-      }
     }
+  }
+
+  var filterFunction = function () {
+    searchText = $(".filterInput").val();
+    $(".message-list").children().each(function(number, element) {
+      if (element.innerHTML.toLowerCase().indexOf(searchText.toLowerCase()) != -1) {
+        $(element).removeClass("hidden");
+      } else {
+        $(element).addClass("hidden");
+      }
+    });
   }
 
 
@@ -55,7 +54,7 @@
   }
 
   $.get("/posts", createFeed);
-
+  $(".filterInput").on("keyup", filterFunction);
   //This is the end of the JavaScript.
   </script>
 </body>

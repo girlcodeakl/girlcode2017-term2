@@ -47,7 +47,9 @@ li a:hover:not(.active) {
 }
 
 
-.hidden {display: none}
+.hidden {
+  display: none
+}
 
 img {
     width: 747.33px;
