@@ -46,4 +46,10 @@ li a:hover:not(.active) {
     background-color: #4CAF50;
 }
 
+
 .hidden {display: none}
+
+img {
+    width: 747.33px;
+    max-width: 100%;
+}
