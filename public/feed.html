@@ -19,7 +19,9 @@
   <h1 class="title">Message Feed</h1>
   <input type="text" name="filter" class="filterInput" placeholder="Search">
   <div class="message-list">
+    <p class="hidden norslt"> No results found </p>
   </div>
+
   <script>
   //Hello! This is the start of the JavaScript.
 
@@ -47,7 +49,6 @@
     postElement.append(postText)
     var buttonReply = $('<button class= "postButton"> Reply</button>');
     postElement.append(buttonReply)
-
     var postComment = function () {
       alert("post id: " + post.id + ", my comment: " + postElement.find("input").val());
     }
@@ -62,14 +63,30 @@
   $.get("/posts", createFeed);
 
   var filterFunction = function () {
+    var foundAnything = false;
     searchText = $(".filterInput").val();
-    $(".message-list").children().each(function(number, element) {
+    $(".message-list").children().each(function(number, element)
+    {
       if (element.innerHTML.toLowerCase().indexOf(searchText.toLowerCase()) != -1) {
+        foundAnything = true;
         $(element).removeClass("hidden");
-      } else {
+      }
+      else {
         $(element).addClass("hidden");
       }
+
+
     });
+
+    if(foundAnything === false)
+    {
+      $(".norslt").removeClass("hidden");
+
+    }
+    else {
+      $(".norslt").addClass("hidden");
+    }
+
   }
 
   $(".filterInput").on("keyup", filterFunction);
