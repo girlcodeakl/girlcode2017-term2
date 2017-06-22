@@ -22,8 +22,6 @@
     <p class="hidden norslt"> No results found </p>
   </div>
 
-
-
   <script>
   //Hello! This is the start of the JavaScript.
 
@@ -39,17 +37,22 @@
     if (post.time === undefined) {
       post.time = new Date("2016-01-01");
     }
-
+    function displayComment(comment) {
+      var commentsElement = $('<div class="comments">' + post.comments + '</div>');
+      postElement.append(commentsElement);
+    }
+    if (post.comments === undefined) {
+      post.comments = []
+    }
+    post.comments.forEach(displayComment)
     var postText = $('<input type="text" name="reply" class="replyInput" placeholder="Reply">');
     postElement.append(postText)
     var buttonReply = $('<button class= "postButton"> Reply</button>');
     postElement.append(buttonReply)
-
     var postComment = function () {
       alert("post id: " + post.id + ", my comment: " + postElement.find("input").val());
     }
     postElement.find("button").click(postComment);
-
   }
 
   var createFeed = function(data) {
@@ -59,8 +62,7 @@
 
   $.get("/posts", createFeed);
 
-  var filterFunction = function ()
-  {
+  var filterFunction = function () {
     var foundAnything = false;
     searchText = $(".filterInput").val();
     $(".message-list").children().each(function(number, element)
@@ -87,11 +89,8 @@
 
   }
 
-
-
-
-
   $(".filterInput").on("keyup", filterFunction);
+
   //This is the end of the JavaScript.
   </script>
 </body>
