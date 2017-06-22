@@ -18,6 +18,9 @@ h1 {
   border: 2px solid #FFB03B;
   border-radius: 5px;
 }
+.postId {
+    display: none;
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -44,6 +47,11 @@ li a:hover:not(.active) {
 
 .active {
     background-color: #4CAF50;
+}
+
+
+.hidden {
+  display: none
 }
 
 img {
