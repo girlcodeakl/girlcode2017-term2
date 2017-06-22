@@ -47,9 +47,9 @@ var postComment = function () {
 
 }
 
-
 var createFeed = function(data) {
-data.forEach(displayMessage);
+  var data1 = data.reverse();
+  data1.forEach(displayMessage);
 }
 
 $.get("/posts", createFeed);
