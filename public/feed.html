@@ -17,6 +17,7 @@
     </ul>
         </div>
     <h1 class="title">Message Feed</h1>
+    <input type="text" name="filter" class="filterInput" placeholder="Search">
     <div class="message-list">
     </div>
     <script>
@@ -54,6 +55,18 @@ var createFeed = function(data) {
 
 $.get("/posts", createFeed);
 
+var filterFunction = function () {
+    searchText = $(".filterInput").val();
+    $(".message-list").children().each(function(number, element) {
+      if (element.innerHTML.toLowerCase().indexOf(searchText.toLowerCase()) != -1) {
+        $(element).removeClass("hidden");
+      } else {
+        $(element).addClass("hidden");
+      }
+    });
+  }
+
+$(".filterInput").on("keyup", filterFunction);
 //This is the end of the JavaScript.
     </script>
   </body>
