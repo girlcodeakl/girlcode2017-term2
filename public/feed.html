@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset='utf-8'>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
-    <title>Message Feed</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="nav-bar">
-          <ul>
+<head>
+  <meta charset='utf-8'>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
+  <title>Message Feed</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="nav-bar">
+    <ul>
       <li><a href="http://localhost:3000/">Home</a></li>
       <li><a href="http://localhost:3000/feed.html">Check the feed</a></li>
       <li><a href="http://localhost:3000/post.html">Add a message</a></li>
     </ul>
-        </div>
-    <h1 class="title">Message Feed</h1>
-    <input type="text" name="filter" class="filterInput" placeholder="Search">
-    <div class="message-list">
-      <p class="hidden norslt"> No results found </p>
-      </div>
+  </div>
+  <h1 class="title">Message Feed</h1>
+  <input type="text" name="filter" class="filterInput" placeholder="Search">
+  <div class="message-list">
+    <p class="hidden norslt"> No results found </p>
+  </div>
 
 
 
-    <script>
-//Hello! This is the start of the JavaScript.
+  <script>
+  //Hello! This is the start of the JavaScript.
 
-var displayMessage = function(post) {
-  var postElement = $('<div class="message">' + post.message + '</div>');
-  $(".message-list").append(postElement);
-  var imageElement = $('<img src='+post.image+'>');
-  var authorElement = $('<div class="author">' + "Written by: " + post.author + '</div>');
-postElement.append(authorElement);
-postElement.append(imageElement);
-var timeElement = $('<div class="time">' + $.format.prettyDate(post.time) + '</div>' );
-postElement.append(timeElement);
-if (post.time === undefined) {
-   post.time = new Date("2016-01-01");
-}
+  var displayMessage = function(post) {
+    var postElement = $('<div class="message">' + post.message + '</div>');
+    $(".message-list").append(postElement);
+    var imageElement = $('<img src='+post.image+'>');
+    var authorElement = $('<div class="author">' + "Written by: " + post.author + '</div>');
+    postElement.append(authorElement);
+    postElement.append(imageElement);
+    var timeElement = $('<div class="time">' + $.format.prettyDate(post.time) + '</div>' );
+    postElement.append(timeElement);
+    if (post.time === undefined) {
+      post.time = new Date("2016-01-01");
+    }
 
-var postText = $('<input type="text" name="reply" class="replyInput" placeholder="Reply">');
-postElement.append(postText)
-var buttonReply = $('<button class= "postButton"> Reply</button>');
-postElement.append(buttonReply)
+    var postText = $('<input type="text" name="reply" class="replyInput" placeholder="Reply">');
+    postElement.append(postText)
+    var buttonReply = $('<button class= "postButton"> Reply</button>');
+    postElement.append(buttonReply)
 
-var postComment = function () {
-   alert("post id: " + post.id + ", my comment: " + postElement.find("input").val());
+    var postComment = function () {
+      alert("post id: " + post.id + ", my comment: " + postElement.find("input").val());
+    }
+    postElement.find("button").click(postComment);
+
   }
-  postElement.find("button").click(postComment);
 
-}
+  var createFeed = function(data) {
+    var data1 = data.reverse();
+    data1.forEach(displayMessage);
+  }
 
-var createFeed = function(data) {
-  var data1 = data.reverse();
-  data1.forEach(displayMessage);
-}
+  $.get("/posts", createFeed);
 
-$.get("/posts", createFeed);
-
-var filterFunction = function ()
-{
-  var foundAnything = false;
+  var filterFunction = function ()
+  {
+    var foundAnything = false;
     searchText = $(".filterInput").val();
     $(".message-list").children().each(function(number, element)
     {
@@ -70,7 +70,7 @@ var filterFunction = function ()
         $(element).removeClass("hidden");
       }
       else {
-         $(element).addClass("hidden");
+        $(element).addClass("hidden");
       }
 
 
@@ -85,14 +85,14 @@ var filterFunction = function ()
       $(".norslt").addClass("hidden");
     }
 
-    }
+  }
 
 
 
 
 
-$(".filterInput").on("keyup", filterFunction);
-//This is the end of the JavaScript.
-    </script>
-  </body>
+  $(".filterInput").on("keyup", filterFunction);
+  //This is the end of the JavaScript.
+  </script>
+</body>
 </html>
