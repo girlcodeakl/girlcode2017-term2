@@ -33,12 +33,16 @@
     postElement.append(timeElement);
     if (post.time === undefined) {
       post.time = new Date("2016-01-01");
-      function displayComment(comment) {
-        //the code in here will run for each comment
-        console.log(comment); //look at your developer tools to see the comments appear
-      }
-      post.comments.forEach(displayComment)
     }
+    function displayComment(comment) {
+      var commentsElement = $('<div class="comments">' + post.comments + '</div>');
+      postElement.append(commentsElement);
+    }
+    if (post.comments === undefined) {
+      post.comments = []
+    }
+      post.comments.forEach(displayComment)
+
   }
 
 
