@@ -29,6 +29,8 @@ var saveNewPost = function (request, response) {
   post.image = request.body.image;
   post.time= new Date();
   post.author = request.body.author;
+  post.comments = [];
+  post.comments.push("flower power")
   post.id = Math.round(Math.random() * 10000);
   console.log(request.body.author);
   posts.push(post);
