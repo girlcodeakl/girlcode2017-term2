@@ -26,21 +26,25 @@ var saveNewPost = function (request, response) {
 
   var post = {};
   post.message = request.body.message;
-  post.image = request.body.image;
-  post.time= new Date();
+  if(request.body.image==="") {
+    post.image = "https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAVNAAAAJGExYTBkMWQyLWM4MTQtNGE3MC04YzZkLTdkZWNjMDVhNGFlMA.jpg";
+  }else {
+    post.image = request.body.image;
+    }
+    post.time= new Date();
   post.author = request.body.author;
   post.id = Math.round(Math.random() * 10000);
   console.log(request.body.author);
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
   var dbPosts = database.collection('posts');
-dbPosts.insert(post);
+  dbPosts.insert(post);
 }
 app.get('/post', function (req, res) {
-   var searchId = req.query.id;
-   console.log("Searching for post " + searchId);
-   var post = posts.find(x => x.id == searchId);
-      res.send(post);
+  var searchId = req.query.id;
+  console.log("Searching for post " + searchId);
+  var post = posts.find(x => x.id == searchId);
+  res.send(post);
 });
 
 app.post('/posts', saveNewPost);
