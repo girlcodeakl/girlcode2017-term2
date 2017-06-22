@@ -29,6 +29,8 @@ var saveNewPost = function (request, response) {
   post.image = request.body.image;
   post.time= new Date();
   post.author = request.body.author;
+  post.comments = [];
+  post.comments.push("flower power")
   console.log(request.body.author);
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
