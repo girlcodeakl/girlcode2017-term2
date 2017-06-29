@@ -55,10 +55,16 @@
     var buttonReply = $('<button class= "postButton"> Reply</button>');
     postElement.append(buttonReply)
     var postComment = function () {
-      alert("post id: " + post.id + ", my comment: " + postElement.find("input").val());
+      var data = {};
+    data.postId = post.id;
+    data.comment = postElement.find("input").val(); //fixme: replace this with the actual comment
+    $.post("/comment", data);
+    console.log("i asked the server to save your comment");
+      //alert("post id: " + post.id + ", my comment: " + postElement.find("input").val());
     }
     postElement.find("button").click(postComment);
   }
+
 
   var createFeed = function(data) {
     var data1 = data.reverse();

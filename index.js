@@ -34,7 +34,6 @@ var saveNewPost = function (request, response) {
     post.time= new Date();
   post.author = request.body.author;
   post.comments = [];
-  post.comments.push("flower power")
   post.id = Math.round(Math.random() * 10000);
   console.log(request.body.author);
   posts.push(post);
@@ -49,6 +48,7 @@ app.get('/post', function (req, res) {
   res.send(post);
 });
 
+
 app.post('/posts', saveNewPost);
 var mongodb = require('mongodb');
 var uri = 'mongodb://girlcode:hats123@ds019893.mlab.com:19893/girlcode2017-term2';
@@ -62,9 +62,20 @@ mongodb.MongoClient.connect(uri, function(err, newdb) {
       if (item != null) {
         posts.push(item);
       }
+
     });
   });
 });
+var commentHandler = function (req, res) {
+    console.log(req.body.postId);
+    console.log(req.body.comment);
+    var post = posts.find(x => x.id == req.body.postId);
+    post.comments.push(req.body.comment);
+    db.posts.update({id: postId}, post)
+    console.log(post);
+   res.send("ok");
+}
+app.post("/comment", commentHandler);
 
 
 //listen for connections on port 3000
