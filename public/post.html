@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset='utf-8'>
-    <script
-src="https://code.jquery.com/jquery-3.2.1.min.js"
-integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-crossorigin="anonymous"></script>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset='utf-8'>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-<div class="nav-bar">
-      <ul>
-  <li><a href="http://localhost:3000/">Home</a></li>
-  <li><a href="http://localhost:3000/feed.html">Check the feed</a></li>
-  <li><a href="http://localhost:3000/post.html">Add a message</a></li>
-</ul>
-    </div>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<body>
+  <div class="nav-bar">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/feed.html">Check the feed</a></li>
+      <li><a href="/post.html">Add a message</a></li>
+    </ul>
+  </div>
 
-      <div class="note"></div>
-      <form method="post" action="/posts">
-          <input type="text" name="message" class="messageInput" placeholder="Your message goes here">
-          <input type="text" name="image" class="imageInput" placeholder="Enter image url here">
-          <input type="text" name="author" class="authorInput" placeholder="Your name here">
+  <div class="note"></div>
+  <form method="post" action="/posts">
+    <input type="text" name="message" class="messageInput" placeholder="Your message goes here">
+    <input type="text" name="image" class="imageInput" placeholder="Enter image url here">
+    <input type="text" name="author" class="authorInput" placeholder="Your name here">
 
-          <button class= "postButton"> Post It!</button>
-      </form>
-      <script >
-      var myCoolFunction = function (e) {
-      var data = {};
-      data.message = $(".messageInput").val();
-      data.image = $(".imageInput").val();
-      data.author = $(".authorInput").val();
-$.post( "/posts" , data );
+    <button class= "postButton"> Post It!</button>
+  </form>
+  <script >
+  var myCoolFunction = function (e) {
+    var data = {};
+    data.message = $(".messageInput").val();
+    data.image = $(".imageInput").val();
+    data.author = $(".authorInput").val();
+    $.post( "/posts" , data );
     e.preventDefault();
-$(".note").text("Thanks! Your message was saved!");
-}
-$(".postButton").on("click", myCoolFunction);
+    $(".note").text("Thanks! Your message was saved!");
+  }
+  $(".postButton").on("click", myCoolFunction);
 
 
-      </script >
+  </script >
   </body>
 
-</html>
+  </html>
