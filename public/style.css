@@ -60,6 +60,16 @@ p{
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
 }
+.comments{
+  color: #3F4642;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  margin: 20px;
+  padding: 15px;
+  border: 2px solid #2186c4;
+  border-radius: 5px;
+  background-color: #FFF6E5;
+}
 .postId {
     display: none;
 }

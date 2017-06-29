@@ -49,11 +49,11 @@
     if (post.comments === undefined) {
       post.comments = []
     }
-    post.comments.forEach(displayComment)
     var postText = $('<input type="text" name="reply" class="replyInput" placeholder="Post message here">');
     postElement.append(postText)
     var buttonReply = $('<button class= "postButton"> Reply</button>');
     postElement.append(buttonReply)
+    post.comments.forEach(displayComment)
     var postComment = function () {
       var data = {};
     data.postId = post.id;
@@ -61,7 +61,7 @@
     $.post("/comment", data);
     console.log("i asked the server to save your comment");
     var commentsElement = $('<div class="comments">' + data.comment + '</div>');
-    commentsElement.insertBefore(postElement.find("input"));
+    postElement.append (commentsElement);
       //alert("post id: " + post.id + ", my comment: " + postElement.find("input").val());
     }
     postElement.find("button").click(postComment);
