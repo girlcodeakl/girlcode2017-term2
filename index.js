@@ -3,6 +3,8 @@ var database = null;
 var express = require('express')
 var app = express();
 var bodyParser = require('body-parser')
+var Filter = require('bad-words'),
+  filter = new Filter();
 
 //If a client asks for a file,
 //look in the public folder. If it's there, give it to them.
@@ -25,14 +27,14 @@ app.get('/posts', sendPostsList);
 var saveNewPost = function (request, response) {
 
   var post = {};
-  post.message = request.body.message;
+  post.message = (filter.clean(request.body.message));
   if(request.body.image==="") {
     post.image = "https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAVNAAAAJGExYTBkMWQyLWM4MTQtNGE3MC04YzZkLTdkZWNjMDVhNGFlMA.jpg";
   }else {
     post.image = request.body.image;
     }
     post.time= new Date();
-  post.author = request.body.author;
+  post.author = (filter.clean(request.body.author));
   post.comments = [];
   post.id = Math.round(Math.random() * 10000);
   console.log(request.body.author);
@@ -71,7 +73,7 @@ var commentHandler = function (req, res) {
     console.log(req.body.postId);
     console.log(req.body.comment);
     var post = posts.find(x => x.id == req.body.postId);
-    post.comments.push(req.body.comment);
+    post.comments.push(filter.clean(req.body.comment));
     database.collection("posts").update({id: parseInt (req.body.postId)}, post);
     console.log(post);
    res.send("ok");
