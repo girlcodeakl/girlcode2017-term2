@@ -6,9 +6,30 @@ body {
   padding: 20px;
   font-family: 'Raleway', sans-serif;
 }
-HTML{
-  background-color: #ffffff;
 
+input {
+    border: 10px solid #3F464C;
+    background-color: #FFF6E5;
+    color: #3F464C;
+    display:block;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+button {
+   color: #F464C;
+   background-color: #FFF6E5;
+   border: 20px solid #2186C4;
+   padding: 20px;
+   font-size: 20px;
+}
+html {
+  background-color: #ffffff;
 }
 h1 {
   color: #3F4642;
