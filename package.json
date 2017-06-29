@@ -14,11 +14,12 @@
   },
   "homepage": "https://github.com/girlcodeakl/template",
   "dependencies": {
+    "bad-words": "^1.5.1",
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "mongodb": "^2.1.0"
   },
   "scripts": {
-     "start": "node index.js"
-   }
+    "start": "node index.js"
+  }
 }
