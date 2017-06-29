@@ -3,9 +3,10 @@ body {
 }
 
 .message-list {
-  background-color: #FFF0A5;
   padding: 20px;
+  font-family: 'Raleway', sans-serif;
 }
+
 input {
     border: 10px solid #3F464C;
     background-color: #FFF6E5;
@@ -27,16 +28,26 @@ button {
    padding: 20px;
    font-size: 20px;
 }
+html {
+  background-color: #ffffff;
+}
 h1 {
-  color: #FFB03B;
+  color: #3F4642;
+  font-family: 'Raleway', sans-serif;
 }
 
 .message {
-  color: #468966;
+  color: #3F4642;
   margin: 10px;
   padding: 10px;
-  border: 2px solid #FFB03B;
+  border: 2px solid #FF8066;
   border-radius: 5px;
+  background-color: #FFF6E5;
+
+}
+.author{
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
 }
 .postId {
     display: none;
@@ -46,7 +57,9 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #b3b3ff;
+    background-color: #2186C4;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
 }
 
 li {
@@ -62,7 +75,7 @@ li a {
 }
 
 li a:hover:not(.active) {
-    background-color: #111;
+    background-color: #7ECEFC;
 }
 
 .active {
@@ -77,4 +90,6 @@ li a:hover:not(.active) {
 img {
     width: 747.33px;
     max-width: 100%;
+    display: block;
+    margin: auto;
 }

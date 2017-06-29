@@ -8,6 +8,7 @@
   <title>Message Feed</title>
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
   <div class="nav-bar">
@@ -27,14 +28,17 @@
   //Hello! This is the start of the JavaScript.
 
   var displayMessage = function(post) {
-    var postElement = $('<div class="message">' + post.message + '</div>');
+    var postElement = $('<div class="message">' + '</div>');
     $(".message-list").append(postElement);
     var imageElement = $('<img src='+post.image+'>');
-    var authorElement = $('<div class="author">' + "Written by: " + post.author + '</div>');
+    var authorElement = $('<div class="author">' + " " + post.author + '</div>');
     postElement.append(authorElement);
-    postElement.append(imageElement);
     var timeElement = $('<div class="time">' + $.format.prettyDate(post.time) + '</div>' );
     postElement.append(timeElement);
+    var messagesElement = $('<div class="messages">' + post.message + '</div>');
+    postElement.append(messagesElement);
+    postElement.append(imageElement);
+
     if (post.time === undefined) {
       post.time = new Date("2016-01-01");
     }
