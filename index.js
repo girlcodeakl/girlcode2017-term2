@@ -40,6 +40,7 @@ var saveNewPost = function (request, response) {
   response.send("thanks for your message. Press back to add another");
   var dbPosts = database.collection('posts');
   dbPosts.insert(post);
+
 }
 app.get('/post', function (req, res) {
   var searchId = req.query.id;
@@ -71,7 +72,7 @@ var commentHandler = function (req, res) {
     console.log(req.body.comment);
     var post = posts.find(x => x.id == req.body.postId);
     post.comments.push(req.body.comment);
-    db.posts.update({id: postId}, post)
+    database.collection("posts").update({id: parseInt (req.body.postId)}, post);
     console.log(post);
    res.send("ok");
 }
