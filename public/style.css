@@ -8,8 +8,9 @@ body {
 }
 
 input {
-    border: 10px solid #3F464C;
+    border: 2px solid #3F464C;
     background-color: #FFF6E5;
+    border-radius: 5px;
     color: #3F464C;
     display:block;
     margin:auto;
@@ -24,25 +25,35 @@ input {
 button {
    color: #F464C;
    background-color: #FFF6E5;
-   border: 20px solid #2186C4;
+   border: 2px solid #3F464C;
+   border-radius: 5px;
    padding: 20px;
    font-size: 20px;
 }
 html {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 h1 {
   color: #3F4642;
   font-family: 'Raleway', sans-serif;
 }
-
+h2 {
+  color: #3F4642;
+  font-family: 'Raleway', sans-serif;
+  font-weight: lighter;
+}
+p{
+  color: #3F4642;
+  font-family: 'Raleway', sans-serif;
+  font-weight: lighter;
+}
 .message {
   color: #3F4642;
   margin: 10px;
   padding: 10px;
-  border: 2px solid #FF8066;
+  border: 2px solid #A2DEFA;
   border-radius: 5px;
-  background-color: #FFF6E5;
+  background-color: #A2DEFA;
 
 }
 .author{
@@ -57,7 +68,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #2186C4;
+    background-color: #3F4642;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
 }
@@ -68,7 +79,7 @@ li {
 
 li a {
     display: block;
-    color: #333333;
+    color: #FFFFFF;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
