@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset='utf-8'>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  </head>
+  <body>
+<div class="nav-bar">
+      <ul>
+  <li><a href="/index.html">Home</a></li>
+  <li><a href="/feed.html">What's on the menu?</a></li>
+  <li><a href="/post.html">Share food</a></li>
+</ul>
+    </div>
+
+  <div class="note"></div>
+  <form method="post" action="/posts">
+    <input type="text" name="message" class="postIdInput" placeholder="ID">
+    <input type="text" name="image" class="passwordInput" placeholder="Password">
+
+
+    <button class= "deleteButton">  Delete!</button>
+  </form>
+  <script >
+  var myCoolFunction = function (e) {
+    var data = {};
+    data.postId = $(".postIdInput").val();
+    data.password = $(".passwordInput").val();
+    $.post( "/delete" , data );
+    e.preventDefault();
+    $(".note").text("Thanks! Your message was deleted!");
+  }
+  $(".deleteButton").on("click", myCoolFunction);
+
+
+  </script >
+  </body>
+
+  </html>

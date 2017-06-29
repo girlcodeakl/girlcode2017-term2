@@ -76,7 +76,13 @@ var commentHandler = function (req, res) {
    res.send("ok");
 }
 app.post("/comment", commentHandler);
-
+//delete comment script
+var deleteHandler = function (req, res) {
+   console.log("client wants to delete this post: " + req.body.postId );
+    //code goes here
+   res.send("ok");
+}
+app.post("/delete", deleteHandler);
 
 //listen for connections on port 3000
 app.listen(process.env.PORT || 3000);
