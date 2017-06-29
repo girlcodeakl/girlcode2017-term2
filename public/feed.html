@@ -36,7 +36,7 @@
       post.time = new Date("2016-01-01");
     }
     function displayComment(comment) {
-      var commentsElement = $('<div class="comments">' + post.comments + '</div>');
+      var commentsElement = $('<div class="comments">' + comment + '</div>');
       postElement.append(commentsElement);
     }
     if (post.comments === undefined) {
@@ -54,6 +54,8 @@
     data.comment = postElement.find("input").val(); //fixme: replace this with the actual comment
     $.post("/comment", data);
     console.log("i asked the server to save your comment");
+    var commentsElement = $('<div class="comments">' + data.comment + '</div>');
+    commentsElement.insertBefore(postElement.find("input"));
       //alert("post id: " + post.id + ", my comment: " + postElement.find("input").val());
     }
     postElement.find("button").click(postComment);
