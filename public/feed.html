@@ -14,11 +14,11 @@
   <div class="nav-bar">
     <ul>
       <li><a href="/index.html">Home</a></li>
-      <li><a href="/feed.html">Check the feed</a></li>
-      <li><a href="/post.html">Add a message</a></li>
+      <li><a href="/feed.html">What's on the menu?</a></li>
+      <li><a href="/post.html">Share food</a></li>
     </ul>
   </div>
-  <h1 class="title">Message Feed</h1>
+  <h1 class="title">Today's Specials </h1>
   <input type="text" name="filter" class="filterInput" placeholder="Search">
   <div class="message-list">
     <p class="hidden norslt"> No results found </p>
@@ -50,7 +50,7 @@
       post.comments = []
     }
     post.comments.forEach(displayComment)
-    var postText = $('<input type="text" name="reply" class="replyInput" placeholder="Reply">');
+    var postText = $('<input type="text" name="reply" class="replyInput" placeholder="Post message here">');
     postElement.append(postText)
     var buttonReply = $('<button class= "postButton"> Reply</button>');
     postElement.append(buttonReply)
